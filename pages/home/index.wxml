@@ -1,0 +1,51 @@
+<!--pages/home/index.wxml-->
+<view class="search-bar-box">
+  <view class="btn-icon-box">
+    <van-icon name="/assets/iconImg/zaobao.png" size="20px"/>
+    <text>早报</text>
+  </view>
+  <view class="search-box">
+    <van-search value="{{ value }}" placeholder="搜索：新希望华发" />
+  </view>
+  <view class="lication-btn-box"><van-icon name="/assets/iconImg/dingwei.png" size="20px"/></view>
+  <view class="btn-icon-box">
+    <van-icon name="/assets/iconImg/fenxiang.png" size="20px"/>
+    <text>分享</text>
+  </view>
+</view>
+<view class="page-content-box">
+  <view class="page-swiper-box">
+    <swiper 
+      indicator-dots="{{true}}" 
+      autoplay="{{true}}" 
+      interval="{{5000}}"
+      duration="{{500}}"
+      indicator-color="rgba(255,255,255,.6)"
+      indicator-active-color="#ffffff"
+    >
+          <swiper-item>
+            <view class="swiper-item 1">
+              <image class="img" src="/assets/swiperImg/swiper1.jpeg"/>
+            </view>
+          </swiper-item>
+          <swiper-item>
+            <view class="swiper-item">
+              <image class="img" src="/assets/swiperImg/swiper2.jpeg"/>
+            </view>
+          </swiper-item>
+          <swiper-item>
+            <view class="swiper-item">
+              <image class="img" src="/assets/swiperImg/swiper1.jpeg"/>
+            </view>
+          </swiper-item>
+      </swiper>
+  </view>
+  <view class="count-bar">
+    
+    <view class="count-item" wx:for="{{countInfos}}">
+      <view class="count-num" style="background:{{item.color}};">{{item.value}}</view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>    
+</view>
+

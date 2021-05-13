@@ -1,0 +1,53 @@
+/* pages/home/index.wxss */
+.search-bar-box{
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+.search-bar-box .btn-icon-box{
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  color: #97969c;
+}
+.search-bar-box .search-box{
+  flex: 1;
+}
+.search-bar-box .lication-btn-box{
+  background-color: #F7F8FA;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: -11px;
+  padding: 0 12px;
+  border-radius: 2px;
+}
+.page-content-box{
+  padding: 54px 10px 0;
+}
+.page-content-box .count-bar{
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.page-content-box .count-bar .count-item{
+  color: #333333;
+  font-size: 10px;
+}
+.page-content-box .count-bar .count-item .count-num{
+  font-size: 24px;
+  background: #FF4452;
+  height: 40px;
+  width: 45px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 40px;
+  color: #ffffff;
+  margin-bottom: 4px;
+}

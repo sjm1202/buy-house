@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/haofang/index",
+    "pages/quanzi/index",
+    "pages/xinxi/index",
+    "pages/wo/index",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index"
+  },
+  "entryPagePath": "pages/home/index",
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#42AC84",
+    "navigationBarTitleText": "购房通",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar":{
+    "color": "#97969C",
+    "selectedColor": "#42AC84",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "iconPath": "assets/barIconImg/home.png",
+        "selectedIconPath": "assets/barIconImg/home_selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/haofang/index",
+        "iconPath": "assets/barIconImg/haofang.png",
+        "selectedIconPath": "assets/barIconImg/haofang_selected.png",
+        "text": "必看好房"
+      },
+      {
+        "pagePath": "pages/quanzi/index",
+        "iconPath": "assets/barIconImg/quanzi.png",
+        "selectedIconPath": "assets/barIconImg/quanzi_selected.png",
+        "text": "圈子"
+      },
+      {
+        "pagePath": "pages/xinxi/index",
+        "iconPath": "assets/barIconImg/xiaoxi.png",
+        "selectedIconPath": "assets/barIconImg/xiaoxi_selected.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/wo/index",
+        "iconPath": "assets/barIconImg/wo.png",
+        "selectedIconPath": "assets/barIconImg/wo_selected.png",
+        "text": "我"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
