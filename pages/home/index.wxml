@@ -1,17 +1,18 @@
-<!--pages/home/index.wxml-->
 <view class="search-bar-box">
   <view class="btn-icon-box">
     <van-icon name="/assets/iconImg/zaobao.png" size="20px"/>
     <text>早报</text>
   </view>
   <view class="search-box">
-    <van-search value="{{ value }}" placeholder="搜索：新希望华发" />
+    <van-search bindtap="handleOpenSearchPage"  readonly="{{true}}" placeholder="搜索：新希望华发" />
   </view>
-  <view class="lication-btn-box"><van-icon name="/assets/iconImg/dingwei.png" size="20px"/></view>
-  <view class="btn-icon-box">
+  <view bindtap="handleOpenMapSearchPage" class="lication-btn-box">
+    <van-icon name="/assets/iconImg/dingwei.png" size="20px"/>
+  </view>
+  <button class="btn-icon-box" open-type="share" hover-class="none">
     <van-icon name="/assets/iconImg/fenxiang.png" size="20px"/>
     <text>分享</text>
-  </view>
+  </button>
 </view>
 <view class="page-content-box">
   <view class="page-swiper-box">
@@ -23,29 +24,352 @@
       indicator-color="rgba(255,255,255,.6)"
       indicator-active-color="#ffffff"
     >
-          <swiper-item>
-            <view class="swiper-item 1">
-              <image class="img" src="/assets/swiperImg/swiper1.jpeg"/>
-            </view>
-          </swiper-item>
-          <swiper-item>
-            <view class="swiper-item">
-              <image class="img" src="/assets/swiperImg/swiper2.jpeg"/>
-            </view>
-          </swiper-item>
-          <swiper-item>
-            <view class="swiper-item">
-              <image class="img" src="/assets/swiperImg/swiper1.jpeg"/>
-            </view>
-          </swiper-item>
-      </swiper>
+      <swiper-item>
+        <view class="swiper-item 1">
+          <image class="img" src="/assets/swiperImg/swiper1.jpeg" mode="aspectFill"/>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="swiper-item">
+          <image class="img" src="/assets/swiperImg/swiper2.jpeg"/>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="swiper-item">
+          <image class="img" src="/assets/swiperImg/swiper1.jpeg"/>
+        </view>
+      </swiper-item>
+    </swiper>
   </view>
   <view class="count-bar">
-    
-    <view class="count-item" wx:for="{{countInfos}}">
+    <view class="count-item" wx:for="{{countInfos}}" wx:key="*this">
       <view class="count-num" style="background:{{item.color}};">{{item.value}}</view>
       <text>{{item.name}}</text>
     </view>
   </view>    
+  <view class="function-bar">
+    <view class="function-row">
+      <view class="function-item">
+        <van-icon name="/assets/functionImg/liutongchaxun.png" size="30px"/>
+        <text>查购房资格</text>
+      </view>
+      <view class="function-item">
+        <van-icon name="/assets/functionImg/jisuanqi.png" size="30px"/>
+        <text>房贷计算器</text>
+      </view>
+      <view class="function-item">
+        <van-icon name="/assets/functionImg/jiangbei.png" size="30px"/>
+        <text>楼盘排行榜</text>
+      </view>
+      <view class="function-item">
+        <van-icon name="/assets/functionImg/zhexiantu.png" size="30px"/>
+        <text>房价行情</text>
+      </view>
+      <view class="function-item">
+        <van-icon name="/assets/functionImg/wodeguwen.png" size="30px"/>
+        <text>置业顾问</text>
+      </view>
+    </view>
+    <view class="function-row">
+      <view class="function-item">
+        <van-icon name="/assets/functionImg/rencai.png" size="30px"/>
+        <text>人才资格</text>
+      </view>
+      <view class="function-item">
+        <van-icon name="/assets/functionImg/bankuai.png" size="30px"/>
+        <text>热门板块</text>
+      </view>
+      <view class="function-item">
+        <van-icon name="/assets/functionImg/paimai.png" size="30px"/>
+        <text>土拍信息</text>
+      </view>
+      <view class="function-item">
+        <van-icon name="/assets/functionImg/gongyu.png" size="30px"/>
+        <text>热门公寓</text>
+      </view>
+      <view class="function-item">
+        <van-icon name="/assets/functionImg/loufang.png" size="30px"/>
+        <text>在售楼盘</text>
+      </view>
+    </view>
+  </view>
+  <view class="news-bar">
+    <view class="title">头条</view>
+    <view class="content">
+      <text>已取证！均价25200元/m 6层河景洋房</text>
+    </view>
+  </view>
+  <van-cell
+    is-link
+    title="正在登记"
+    value="更多"
+    link-type="navigateTo"
+    url="pages/haofang/index"
+  />
+<van-card
+  thumb="/assets/houseImg/loupan1.png"
+  wx:for="12"
+  wx:key="*this"
+>
+  <view slot="title" class="house-name">
+    联发阳光城檀境里
+  </view>
+  <view slot="desc" class="house-desc">
+    富阳区 登记截至时间2021.05.13 17:00
+  </view>
+  <view slot="desc" class="house-price">
+    <text class="price">均价22000元/平</text>
+    <view class="comment">
+      <van-icon name="chat-o" size="16px"/>
+      <text>30</text>
+    </view>
+  </view>
+  <view slot="tags" class="house-tags">
+    <view class="tag">楼盘总平</view>
+    <view class="tag">近地铁</view>
+    <view class="tag">大户型</view>
+  </view>
+</van-card>
+<view class="row-parting-line"></view>
+<van-cell
+  is-link
+  title="最新取证"
+  value="更多"
+  link-type="navigateTo"
+  url="pages/haofang/index"
+/>
+<van-card
+  thumb="/assets/houseImg/loupan1.png"
+  wx:for="12"
+  wx:key="*this"
+>
+  <view slot="title" class="house-name">
+    联发阳光城檀境里
+  </view>
+  <view slot="desc" class="house-desc">
+    富阳区 登记截至时间2021.05.13 17:00
+  </view>
+  <view slot="desc" class="house-price">
+    <text class="price">均价22000元/平</text>
+    <view class="comment">
+      <van-icon name="chat-o" size="16px"/>
+      <text>30</text>
+    </view>
+  </view>
+  <view slot="tags" class="house-tags">
+    <view class="tag">楼盘总平</view>
+    <view class="tag">近地铁</view>
+    <view class="tag">大户型</view>
+  </view>
+</van-card>
+<view class="row-parting-line"></view>
+<van-cell
+  is-link
+  title="即将取证"
+  value="更多"
+  link-type="navigateTo"
+  url="pages/haofang/index"
+/>
+<van-card
+  thumb="/assets/houseImg/loupan1.png"
+  wx:for="12"
+  wx:key="*this"
+>
+  <view slot="title" class="house-name">
+    联发阳光城檀境里
+  </view>
+  <view slot="desc" class="house-desc">
+    富阳区 登记截至时间2021.05.13 17:00
+  </view>
+  <view slot="desc" class="house-price">
+    <text class="price">均价22000元/平</text>
+    <view class="comment">
+      <van-icon name="chat-o" size="16px"/>
+      <text>30</text>
+    </view>
+  </view>
+  <view slot="tags" class="house-tags">
+    <view class="tag">楼盘总平</view>
+    <view class="tag">近地铁</view>
+    <view class="tag">大户型</view>
+  </view>
+</van-card>
+<view class="row-parting-line"></view>
+<van-tabs 
+  sticky="{{true}}" 
+  offset-top="{{54}}"
+  swipeable="{{true}}"
+  ellipsis="{{false}}"
+  tab-active-class="my-tab-active-class"
+  color="#42AC84"
+>
+  <van-tab title="在售楼盘">
+    <view class="tab-content-box">
+      <van-card
+        thumb="/assets/houseImg/loupan1.png"
+        wx:for="12"
+        wx:key="*this"
+      >
+        <view slot="title" class="house-name">
+          联发阳光城檀境里
+        </view>
+        <view slot="desc" class="house-desc">
+          富阳区 登记截至时间2021.05.13 17:00
+        </view>
+        <view slot="desc" class="house-price">
+          <text class="price">均价22000元/平</text>
+          <view class="comment">
+            <van-icon name="chat-o" size="16px"/>
+            <text>30</text>
+          </view>
+        </view>
+        <view slot="tags" class="house-tags">
+          <view class="tag">楼盘总平</view>
+          <view class="tag">近地铁</view>
+          <view class="tag">大户型</view>
+        </view>
+      </van-card>
+    </view>
+  </van-tab>
+  <van-tab title="附近楼盘">
+    <view class="tab-content-box">
+      <van-card
+        thumb="/assets/houseImg/loupan1.png"
+        wx:for="123"
+        wx:key="*this"
+      >
+        <view slot="title" class="house-name">
+          联发阳光城檀境里
+        </view>
+        <view slot="desc" class="house-desc">
+          富阳区 登记截至时间2021.05.13 17:00
+        </view>
+        <view slot="desc" class="house-price">
+          <text class="price">均价22000元/平</text>
+          <view class="comment">
+            <van-icon name="chat-o" size="16px"/>
+            <text>30</text>
+          </view>
+        </view>
+        <view slot="tags" class="house-tags">
+          <view class="tag">楼盘总平</view>
+          <view class="tag">近地铁</view>
+          <view class="tag">大户型</view>
+        </view>
+      </van-card>
+    </view>
+  </van-tab>
+  <van-tab title="关注楼盘">
+    <view class="tab-content-box">
+      <van-card
+        thumb="/assets/houseImg/loupan1.png"
+        wx:for="1"
+        wx:key="*this"
+      >
+        <view slot="title" class="house-name">
+          联发阳光城檀境里
+        </view>
+        <view slot="desc" class="house-desc">
+          富阳区 登记截至时间2021.05.13 17:00
+        </view>
+        <view slot="desc" class="house-price">
+          <text class="price">均价22000元/平</text>
+          <view class="comment">
+            <van-icon name="chat-o" size="16px"/>
+            <text>30</text>
+          </view>
+        </view>
+        <view slot="tags" class="house-tags">
+          <view class="tag">楼盘总平</view>
+          <view class="tag">近地铁</view>
+          <view class="tag">大户型</view>
+        </view>
+      </van-card>
+    </view>
+  </van-tab>
+  <van-tab title="现房楼盘">
+    <view class="tab-content-box">
+      <van-card
+        thumb="/assets/houseImg/loupan1.png"
+        wx:for="12"
+        wx:key="*this"
+      >
+        <view slot="title" class="house-name">
+          联发阳光城檀境里
+        </view>
+        <view slot="desc" class="house-desc">
+          富阳区 登记截至时间2021.05.13 17:00
+        </view>
+        <view slot="desc" class="house-price">
+          <text class="price">均价22000元/平</text>
+          <view class="comment">
+            <van-icon name="chat-o" size="16px"/>
+            <text>30</text>
+          </view>
+        </view>
+        <view slot="tags" class="house-tags">
+          <view class="tag">楼盘总平</view>
+          <view class="tag">近地铁</view>
+          <view class="tag">大户型</view>
+        </view>
+      </van-card>
+    </view>
+  </van-tab>
+  <van-tab title="现房楼盘">
+    <view class="tab-content-box">
+      <van-card
+        thumb="/assets/houseImg/loupan1.png"
+        wx:for="1234"
+        wx:key="*this"
+      >
+        <view slot="title" class="house-name">
+          联发阳光城檀境里
+        </view>
+        <view slot="desc" class="house-desc">
+          富阳区 登记截至时间2021.05.13 17:00
+        </view>
+        <view slot="desc" class="house-price">
+          <text class="price">均价22000元/平</text>
+          <view class="comment">
+            <van-icon name="chat-o" size="16px"/>
+            <text>30</text>
+          </view>
+        </view>
+        <view slot="tags" class="house-tags">
+          <view class="tag">楼盘总平</view>
+          <view class="tag">近地铁</view>
+          <view class="tag">大户型</view>
+        </view>
+      </van-card>
+    </view>
+  </van-tab>
+  <van-tab title="刚需楼盘">
+    <view class="tab-content-box">
+      <van-card
+        thumb="/assets/houseImg/loupan1.png"
+        wx:for="12345"
+        wx:key="*this"
+      >
+        <view slot="title" class="house-name">
+          联发阳光城檀境里
+        </view>
+        <view slot="desc" class="house-desc">
+          富阳区 登记截至时间2021.05.13 17:00
+        </view>
+        <view slot="desc" class="house-price">
+          <text class="price">均价22000元/平</text>
+          <view class="comment">
+            <van-icon name="chat-o" size="16px"/>
+            <text>30</text>
+          </view>
+        </view>
+        <view slot="tags" class="house-tags">
+          <view class="tag">楼盘总平</view>
+          <view class="tag">近地铁</view>
+          <view class="tag">大户型</view>
+        </view>
+      </van-card>
+    </view>
+  </van-tab>
+</van-tabs>
 </view>
-

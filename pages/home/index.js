@@ -88,5 +88,19 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  //打开搜索页
+  handleOpenSearchPage: function(){
+    wx.navigateTo({
+      url: "/pages/searchPage/index"
+    })
+  },
+  //打开地图搜索页
+  handleOpenMapSearchPage: function(){
+    wx.navigateTo({
+      url: "/pages/mapSearchPage/index"
+    })
   }
 })
+
+  
